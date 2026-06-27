@@ -12,27 +12,11 @@ The application has been deployed using **Streamlit**, allowing users to interac
 
 ## 🚀 Live Demo
 
-🔗 **Live Application:** *(Add your Streamlit URL here after deployment)*
+🔗 **Live Application:** *https://loanapprovalprojectml-6h9lfkp3ktcowtnksvfupq.streamlit.app/*
 
 ---
 
-## 📷 Project Preview
 
-### Home Page
-
-<p align="center">
-<img src="images/home.png" width="800">
-</p>
-
-### Prediction Result
-
-<p align="center">
-<img src="images/result.png" width="800">
-</p>
-
-> Replace the image names with your actual screenshot filenames if they differ.
-
----
 
 # ✨ Features
 
