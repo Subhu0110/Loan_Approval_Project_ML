@@ -1,297 +1,163 @@
-# 🏦 Loan Approval Prediction using Traditional & Ensemble Machine Learning Models
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
-![Plotly](https://img.shields.io/badge/Plotly-Visualization-purple)
+# 🏦 Loan Approval Prediction using Machine Learning
 
 ## 📌 Project Overview
 
-Loan approval is a critical decision-making process in the banking and financial sector. Incorrect loan approvals can lead to financial losses, while rejecting eligible applicants may result in missed business opportunities.
+This project is a Machine Learning web application that predicts whether a loan application is likely to be **Approved** or **Rejected** based on the applicant's financial and personal information.
 
-This project develops a machine learning-based loan approval prediction system that analyzes applicant information and predicts whether a loan application should be **Approved** or **Rejected**.
+The model has been trained using multiple Machine Learning algorithms, and after comparing their performance, the **Random Forest Classifier** was selected as the final model due to its superior predictive performance.
 
-The project also compares multiple classification algorithms, including traditional machine learning models and ensemble learning techniques, to identify the most effective approach for loan approval prediction.
-
----
-
-# 🎯 Objectives
-
-* Predict loan approval status using applicant financial information.
-* Compare the performance of traditional and ensemble machine learning models.
-* Analyze how different algorithms behave on the same dataset.
-* Identify the best-performing model for the task.
+The application has been deployed using **Streamlit**, allowing users to interact with the model through a simple and intuitive web interface.
 
 ---
 
-# 📂 Dataset Information
+## 🚀 Live Demo
 
-The dataset contains applicant financial and demographic information.
-
-### Features Used
-
-| Feature                  | Description              |
-| ------------------------ | ------------------------ |
-| no_of_dependents         | Number of dependents     |
-| education                | Education level          |
-| self_employed            | Employment status        |
-| income_annum             | Annual income            |
-| loan_amount              | Requested loan amount    |
-| loan_term                | Loan duration            |
-| cibil_score              | Credit score             |
-| residential_assets_value | Residential assets value |
-| commercial_assets_value  | Commercial assets value  |
-| luxury_assets_value      | Luxury assets value      |
-| bank_asset_value         | Bank assets value        |
-| loan_status              | Target Variable          |
-
-### Target Variable
-
-| Value | Meaning  |
-| ----- | -------- |
-| 1     | Approved |
-| 0     | Rejected |
+🔗 **Live Application:** *(Add your Streamlit URL here after deployment)*
 
 ---
 
-# 🔄 Project Workflow
+## 📷 Project Preview
 
-## 1️⃣ Data Loading
+### Home Page
 
-The dataset was imported using Pandas and inspected for structure, data types, and missing values.
+<p align="center">
+<img src="images/home.png" width="800">
+</p>
 
-```python
-df = pd.read_csv("loan_approval_dataset.csv")
-```
+### Prediction Result
 
----
+<p align="center">
+<img src="images/result.png" width="800">
+</p>
 
-## 2️⃣ Data Cleaning
-
-Several preprocessing steps were performed:
-
-* Removed leading spaces from column names.
-* Removed leading spaces from categorical values.
-* Removed the `loan_id` column as it acts only as an identifier.
-* Converted the target variable into binary numerical format.
+> Replace the image names with your actual screenshot filenames if they differ.
 
 ---
 
-## 3️⃣ Exploratory Data Analysis (EDA)
+# ✨ Features
 
-EDA was performed to understand:
-
-* Loan approval distribution
-* Income patterns
-* Asset value distributions
-* Relationships between numerical variables
-
-### Visualizations Used
-
-✅ Class Distribution Plots
-
-✅ Histograms
-
-✅ Correlation Heatmap
+* Predicts Loan Approval Status
+* User-friendly Streamlit Interface
+* Random Forest Machine Learning Model
+* Real-time Predictions
+* Clean and Interactive Dashboard
+* Professional GitHub Documentation
 
 ---
 
-## 4️⃣ Feature Engineering
+# 📊 Dataset Features
 
-Categorical variables were converted into numerical representations using:
+The model uses the following applicant details:
 
-```python
-pd.get_dummies()
-```
-
-This allowed machine learning algorithms to process the data effectively.
-
----
-
-## 5️⃣ Train-Test Split
-
-The dataset was divided into training and testing sets.
-
-```python
-train_test_split(
-    X,
-    y,
-    test_size=0.20,
-    random_state=42
-)
-```
+* Number of Dependents
+* Annual Income
+* Loan Amount
+* Loan Term
+* CIBIL Score
+* Residential Assets Value
+* Commercial Assets Value
+* Luxury Assets Value
+* Bank Asset Value
+* Education Status
+* Self Employment Status
 
 ---
 
-## 6️⃣ Feature Scaling
+# 🤖 Machine Learning Models Compared
 
-Standard Scaling was applied to algorithms sensitive to feature magnitudes.
-
-### Models Scaled
+The following algorithms were trained and evaluated:
 
 * Logistic Regression
-* KNN
-* SVM
-* Naive Bayes
-
-```python
-scaler = StandardScaler()
-
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-```
-
-Tree-based models were trained using unscaled data.
+* K-Nearest Neighbors (KNN)
+* Decision Tree
+* Random Forest ⭐ (Selected Model)
 
 ---
 
-# 🤖 Machine Learning Models Implemented
+# 🏆 Final Model
 
-## Traditional Machine Learning Models
+**Random Forest Classifier**
 
-### Logistic Regression
-
-A linear classification algorithm used as the baseline model.
-
-### K-Nearest Neighbors (KNN)
-
-Predicts classes based on nearest neighboring observations.
-
-### Support Vector Machine (SVM)
-
-Finds the optimal decision boundary separating classes.
-
-### Gaussian Naive Bayes
-
-Probabilistic classifier based on Bayes Theorem.
+The Random Forest model was chosen as the final model because it achieved the best overall performance among the evaluated algorithms.
 
 ---
 
-## Tree-Based Models
-
-### Decision Tree
-
-Creates decision rules through recursive splitting of data.
-
----
-
-## Ensemble Learning Models
-
-### Random Forest (Bagging)
-
-Combines multiple decision trees to improve predictive performance and reduce overfitting.
-
-### AdaBoost (Boosting)
-
-Sequentially trains weak learners by focusing on previously misclassified samples.
-
-### Stacking Classifier
-
-Combines predictions from multiple base models using a meta-model for final prediction.
-
----
-
-# 📊 Model Performance
-
-| Model                | Accuracy   |
-| -------------------- | ---------- |
-| Logistic Regression  | 90.51%     |
-| KNN                  | 89.22%     |
-| SVM                  | 92.38%     |
-| Naive Bayes          | 93.67%     |
-| Decision Tree        | 97.42%     |
-| AdaBoost             | 96.72%     |
-| Stacking Classifier  | 97.30%     |
-| **Random Forest** 🏆 | **97.77%** |
-
----
-
-# 📈 Performance Analysis
-
-### Top 3 Models
-
-🥇 Random Forest — 97.77%
-
-🥈 Decision Tree — 97.42%
-
-🥉 Stacking Classifier — 97.30%
-
-### Key Observation
-
-Ensemble learning methods consistently outperformed traditional machine learning models.
-
-The Random Forest Classifier achieved the highest accuracy and demonstrated excellent generalization performance.
-
----
-
-# 💡 Key Findings
-
-✅ Random Forest achieved the highest accuracy of **97.77%**.
-
-✅ Ensemble learning methods outperformed traditional machine learning models.
-
-✅ Decision Tree achieved 97.42% accuracy, indicating strong decision-rule patterns within the dataset.
-
-✅ Stacking Classifier performed exceptionally well but did not surpass Random Forest.
-
-✅ AdaBoost achieved 96.72% accuracy, confirming the effectiveness of boosting techniques.
-
-✅ Naive Bayes outperformed Logistic Regression, KNN, and SVM despite being a simpler probabilistic model.
-
-✅ Financial indicators such as income, assets, and credit score play a significant role in determining loan approval decisions.
-
----
-
-# 🛠 Technologies Used
+# 🛠️ Tech Stack
 
 * Python
 * Pandas
 * NumPy
+* Scikit-learn
+* Streamlit
 * Matplotlib
 * Seaborn
 * Plotly
-* Scikit-Learn
+* Joblib
 
 ---
 
-# 📁 Repository Structure
+# 📂 Project Structure
 
 ```text
-Loan-Approval-Prediction-Using-Ensemble-Learning
+Loan_Approval_Project/
 │
-├── Loan_Approval_Prediction.ipynb
+├── app.py
+├── model.pkl
+├── loan_approval.ipynb
 ├── loan_approval_dataset.csv
-├── README.md
 ├── requirements.txt
-│
-└── images
-    ├── model_comparison.png
-    └── correlation_heatmap.png
+├── README.md
+└── images/
 ```
 
 ---
 
-# 🚀 Future Improvements
+# ⚙️ Installation
 
-* ROC-AUC Analysis
-* Hyperparameter Tuning
-* Cross Validation
-* XGBoost Implementation
-* Feature Importance Analysis
-* Streamlit Deployment
+Clone the repository:
+
+```bash
+git clone https://github.com/Subhu0110/Loan_Approval_Project_ML.git
+```
+
+Move into the project directory:
+
+```bash
+cd Loan_Approval_Project_ML
+```
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+---
+
+# 📈 Future Improvements
+
+* Model Explainability using SHAP
+* Feature Importance Visualization
+* Probability Distribution Charts
+* Enhanced UI/UX
+* Batch Prediction using CSV Upload
+* Cloud Database Integration
 
 ---
 
 # 👨‍💻 Author
 
-## Subhansh Yadav
+**Subhansh Yadav**
 
-**B.Tech CSE (AI & ML)**
-
-IIIT Nagpur
-
-Machine Learning • Data Science • Artificial Intelligence
+* GitHub: https://github.com/Subhu0110
+* LinkedIn: *linkedin.com/in/subhansh-yadav-081116365*
 
 ---
 
-⭐ If you found this project interesting, consider giving the repository a star.
+⭐ If you found this project interesting, consider giving it a **Star** on GitHub!
